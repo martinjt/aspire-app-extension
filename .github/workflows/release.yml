@@ -19,8 +19,8 @@ jobs:
       with:
         dotnet-version: '8.0.x'
         source-url: https://nuget.pkg.github.com/martinjt/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - run: dotnet build --configuration Release 
     - name: Create the package
       run: dotnet pack --configuration Release -o artifacts /p:Version=
