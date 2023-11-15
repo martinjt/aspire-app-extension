@@ -1,4 +1,5 @@
 using AspireDashboard.Extensions;
+using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 
@@ -10,6 +11,11 @@ builder.Services.AddOpenTelemetry()
     .ConfigureResource(r => r.AddService("Sample App"))
     .WithTracing(tracerProviderBuilder => {
         tracerProviderBuilder.AddAspNetCoreInstrumentation();
+    })
+    .WithMetrics(metricProviderBuilder => {
+        metricProviderBuilder.AddAspNetCoreInstrumentation();
+        metricProviderBuilder.AddMeter("http://Microsoft.AspNetCore.Hosting");
+        metricProviderBuilder.AddMeter("Microsoft.AspNetCore.Server.Kestrel");
     });
 
 builder.Services.AddAspireDashboard();
