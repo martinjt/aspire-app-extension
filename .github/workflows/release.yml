@@ -23,6 +23,6 @@ jobs:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     - run: dotnet build --configuration Release 
     - name: Create the package
-      run: dotnet pack --configuration Release -o artifacts /p:Version=
+      run: dotnet pack --configuration Release -o artifacts /p:Version=${{ github.ref_name }}
     - name: Publish the package to GPR
       run: dotnet nuget push artifacts/*.nupkg
