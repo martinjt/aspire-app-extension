@@ -10,7 +10,7 @@ using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 
-namespace DashboardHosting.Extensions;
+namespace AspireDashboard.Extensions;
 
 public static class AspireDashboardExtensions
 {
