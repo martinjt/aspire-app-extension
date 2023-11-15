@@ -12,6 +12,7 @@ jobs:
     permissions:
       id-token: write
       contents: write
+      packages: write
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v4
@@ -20,7 +21,7 @@ jobs:
         dotnet-version: '8.0.x'
         source-url: https://nuget.pkg.github.com/martinjt/index.json
       env:
-        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: dotnet build --configuration Release 
     - name: Create the package
       run: dotnet pack --configuration Release -o artifacts /p:Version=${{ github.ref_name }}
