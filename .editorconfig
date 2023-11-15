@@ -1,0 +1,127 @@
+[*]
+charset = utf-8-bom
+end_of_line = crlf
+indent_size = 4
+indent_style = space
+insert_final_newline = false
+max_line_length = 120
+tab_width = 4
+trim_trailing_whitespace = false
+ij_continuation_indent_size = 8
+ij_formatter_off_tag = @formatter:off
+ij_formatter_on_tag = @formatter:on
+ij_formatter_tags_enabled = false
+ij_smart_tabs = false
+ij_visual_guides = none
+ij_wrap_on_typing = false
+
+# Microsoft .NET properties
+csharp_new_line_before_members_in_object_initializers = false
+csharp_preferred_modifier_order = public, private, protected, internal, new, static, abstract, virtual, sealed, readonly, override, extern, unsafe, volatile, async:suggestion
+csharp_style_var_elsewhere = true:suggestion
+csharp_style_var_for_built_in_types = true:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+dotnet_naming_rule.method_rule.severity = warning
+dotnet_naming_rule.method_rule.style = upper_camel_case_style
+dotnet_naming_rule.method_rule.symbols = method_symbols
+dotnet_naming_style.upper_camel_case_style.capitalization = pascal_case
+dotnet_naming_symbols.method_symbols.applicable_accessibilities = *
+dotnet_naming_symbols.method_symbols.applicable_kinds = method
+dotnet_style_parentheses_in_arithmetic_binary_operators = never_if_unnecessary:none
+dotnet_style_parentheses_in_other_binary_operators = never_if_unnecessary:none
+dotnet_style_parentheses_in_relational_binary_operators = never_if_unnecessary:none
+dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
+dotnet_style_predefined_type_for_member_access = true:suggestion
+dotnet_style_qualification_for_event = false:suggestion
+dotnet_style_qualification_for_field = false:suggestion
+dotnet_style_qualification_for_method = false:suggestion
+dotnet_style_qualification_for_property = false:suggestion
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:suggestion
+
+# ReSharper properties
+resharper_autodetect_indent_settings = true
+resharper_blank_lines_before_block_statements = 1
+resharper_blank_lines_before_control_transfer_statements = 1
+resharper_blank_lines_before_multiline_statements = 1
+resharper_csharp_empty_block_style = together
+resharper_csharp_keep_blank_lines_in_code = 1
+resharper_csharp_wrap_after_declaration_lpar = true
+resharper_csharp_wrap_after_invocation_lpar = true
+resharper_csharp_wrap_arguments_style = chop_if_long
+resharper_csharp_wrap_before_declaration_lpar = true
+resharper_csharp_wrap_before_declaration_rpar = true
+resharper_csharp_wrap_before_first_type_parameter_constraint = true
+resharper_csharp_wrap_before_invocation_lpar = true
+resharper_csharp_wrap_before_invocation_rpar = true
+resharper_csharp_wrap_lines = false
+resharper_csharp_wrap_multiple_declaration_style = chop_always
+resharper_csharp_wrap_multiple_type_parameter_constraints_style = chop_always
+resharper_csharp_wrap_parameters_style = chop_if_long
+resharper_csharp_wrap_ternary_expr_style = chop_always
+resharper_max_array_initializer_elements_on_line = 30
+resharper_max_enum_members_on_line = 1
+resharper_max_formal_parameters_on_line = 2
+resharper_max_initializer_elements_on_line = 1
+resharper_max_invocation_arguments_on_line = 2
+resharper_place_accessorholder_attribute_on_same_line = false
+resharper_place_simple_initializer_on_single_line = false
+resharper_wrap_array_initializer_style = chop_if_long
+resharper_wrap_chained_method_calls = chop_if_long
+resharper_wrap_for_stmt_header_style = chop_always
+resharper_wrap_object_and_collection_initializer_style = chop_always
+
+[.editorconfig]
+ij_editorconfig_align_group_field_declarations = false
+ij_editorconfig_space_after_colon = false
+ij_editorconfig_space_after_comma = true
+ij_editorconfig_space_before_colon = false
+ij_editorconfig_space_before_comma = false
+ij_editorconfig_spaces_around_assignment_operators = true
+
+[{*.markdown,*.md}]
+ij_markdown_force_one_space_after_blockquote_symbol = true
+ij_markdown_force_one_space_after_header_symbol = true
+ij_markdown_force_one_space_after_list_bullet = true
+ij_markdown_force_one_space_between_words = true
+ij_markdown_keep_indents_on_empty_lines = false
+ij_markdown_max_lines_around_block_elements = 1
+ij_markdown_max_lines_around_header = 1
+ij_markdown_max_lines_between_paragraphs = 1
+ij_markdown_min_lines_around_block_elements = 1
+ij_markdown_min_lines_around_header = 1
+ij_markdown_min_lines_between_paragraphs = 1
+
+[{*.yaml,*.yml}]
+indent_size = 2
+ij_yaml_align_values_properties = do_not_align
+ij_yaml_autoinsert_sequence_marker = true
+ij_yaml_block_mapping_on_new_line = false
+ij_yaml_indent_sequence_value = true
+ij_yaml_keep_indents_on_empty_lines = false
+ij_yaml_keep_line_breaks = true
+ij_yaml_sequence_on_new_line = false
+ij_yaml_space_before_colon = false
+ij_yaml_spaces_within_braces = true
+ij_yaml_spaces_within_brackets = true
+
+[*.{appxmanifest,asax,ascx,aspx,axaml,build,cg,cginc,compute,cs,cshtml,dtd,fs,fsi,fsscript,fsx,hlsl,hlsli,hlslinc,master,ml,mli,nuspec,paml,razor,resw,resx,skin,usf,ush,vb,xaml,xamlx,xoml,xsd}]
+
+[{*.har,*.jsb2,*.jsb3,*.json,.babelrc,.eslintrc,.stylelintrc,bowerrc,jest.config}]
+indent_size = 2
+
+[*.cs]
+dotnet_naming_rule.method_rule.severity = warning
+dotnet_naming_rule.method_rule.style = upper_camel_case_style
+dotnet_naming_rule.method_rule.symbols = method_symbols
+dotnet_naming_style.upper_camel_case_style.capitalization = pascal_case
+dotnet_naming_symbols.method_symbols.applicable_accessibilities = *
+dotnet_naming_symbols.method_symbols.applicable_kinds = method
+dotnet_naming_rule.private_members_with_underscore.symbols  = private_fields
+dotnet_naming_rule.private_members_with_underscore.style    = prefix_underscore
+dotnet_naming_rule.private_members_with_underscore.severity = suggestion
+
+dotnet_naming_symbols.private_fields.applicable_kinds           = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+
+dotnet_naming_style.prefix_underscore.capitalization = camel_case
+dotnet_naming_style.prefix_underscore.required_prefix = _
