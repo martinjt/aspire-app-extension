@@ -25,6 +25,6 @@ jobs:
     - name: Create the package
       run: dotnet pack --configuration Release -o artifacts /p:Version=${{ github.ref_name }}
     - name: Publish the package to GPR
-      run: dotnet nuget push artifacts/*.nupkg $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push artifacts/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
