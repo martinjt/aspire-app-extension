@@ -19,10 +19,10 @@ jobs:
       with:
         dotnet-version: '8.0.x'
         source-url: https://api.nuget.org/v3/index.json
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.NUGET_API_KEY}}
     - run: dotnet build --configuration Release 
     - name: Create the package
       run: dotnet pack --configuration Release -o artifacts /p:Version=${{ github.ref_name }}
     - name: Publish the package to GPR
-      run: dotnet nuget push artifacts/*.nupkg
+      run: dotnet nuget push artifacts/*.nupkg $NUGET_AUTH_TOKEN -s https://nuget.pkg.github.com/OWNER/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
