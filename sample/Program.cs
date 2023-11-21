@@ -14,7 +14,7 @@ builder.Services.AddOpenTelemetry()
     })
     .WithMetrics(metricProviderBuilder => {
         metricProviderBuilder.AddAspNetCoreInstrumentation();
-        metricProviderBuilder.AddMeter("http://Microsoft.AspNetCore.Hosting");
+        metricProviderBuilder.AddMeter("Microsoft.AspNetCore.Hosting");
         metricProviderBuilder.AddMeter("Microsoft.AspNetCore.Server.Kestrel");
     });
 
