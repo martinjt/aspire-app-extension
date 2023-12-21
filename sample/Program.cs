@@ -1,14 +1,14 @@
-using AspireDashboard.Extensions;
+﻿using AspireDashboard.Extensions;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.UseSetting(WebHostDefaults.ApplicationKey, "Sample App");
+builder.WebHost.UseSetting(WebHostDefaults.ApplicationKey, "sample");
 
 builder.Services.AddOpenTelemetry()
-    .ConfigureResource(r => r.AddService("Sample App"))
+    .ConfigureResource(r => r.AddService("sample"))
     .WithTracing(tracerProviderBuilder => {
         tracerProviderBuilder.AddAspNetCoreInstrumentation();
     })

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Dashboard" Version="8.0.0-preview.1.23557.2" />
+    <PackageReference Include="Aspire.Dashboard" Version="8.0.0-preview.2.23619.3" />
     <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.6.0" />
     <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.6.0" />
     <PackageReference Include="System.Linq.Async" Version="6.0.1" />

@@ -1,44 +1,19 @@
-using System.Reflection;
-using Aspire.Dashboard.Model;
+﻿using Aspire.Dashboard.Model;
+using Microsoft.AspNetCore.Hosting;
 
 namespace AspireDashboard.Extensions;
 
-public class DashboardViewModelService : IDashboardViewModelService
+public class DashboardViewModelService(IWebHostEnvironment webHostEnvironment) : IDashboardViewModelService
 {
-    public string ApplicationName { get; }
+    public string ApplicationName { get; } = webHostEnvironment.ApplicationName;
 
-    public DashboardViewModelService(string applicationName)
-    {
-        ApplicationName = applicationName;
-    }
+    public ViewModelMonitor<ResourceViewModel> GetResources() => new ViewModelProcessor<ResourceViewModel>().GetResourceMonitor();
+}
 
-    public ValueTask<List<ContainerViewModel>> GetContainersAsync()
-    {
-        return ValueTask.FromResult(new List<ContainerViewModel>());
-    }
+internal sealed class ViewModelProcessor<T>
+    where T : ResourceViewModel
+{
+    private readonly Dictionary<string, T> snapshot = [];
 
-    public ValueTask<List<ExecutableViewModel>> GetExecutablesAsync()
-    {
-        return ValueTask.FromResult(new List<ExecutableViewModel>());
-    }
-
-    public ValueTask<List<ProjectViewModel>> GetProjectsAsync()
-    {
-        return ValueTask.FromResult(new List<ProjectViewModel>());
-    }
-
-    public IAsyncEnumerable<ResourceChanged<ContainerViewModel>> WatchContainersAsync(IEnumerable<NamespacedName>? existingContainers = null, CancellationToken cancellationToken = default)
-    {
-        return AsyncEnumerable.Empty<ResourceChanged<ContainerViewModel>>();
-    }
-
-    public IAsyncEnumerable<ResourceChanged<ExecutableViewModel>> WatchExecutablesAsync(IEnumerable<NamespacedName>? existingExecutables = null, CancellationToken cancellationToken = default)
-    {
-        return AsyncEnumerable.Empty<ResourceChanged<ExecutableViewModel>>();
-    }
-
-    public IAsyncEnumerable<ResourceChanged<ProjectViewModel>> WatchProjectsAsync(IEnumerable<NamespacedName>? existingProjects = null, CancellationToken cancellationToken = default)
-    {
-        return AsyncEnumerable.Empty<ResourceChanged<ProjectViewModel>>();
-    }
+    public ViewModelMonitor<T> GetResourceMonitor() => new([.. snapshot.Values], AsyncEnumerable.Empty<ResourceChanged<T>>());
 }
