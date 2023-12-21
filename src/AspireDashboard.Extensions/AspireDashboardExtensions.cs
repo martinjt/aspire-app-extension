@@ -1,11 +1,8 @@
 ﻿using Aspire.Dashboard;
-using Aspire.Dashboard.Components.Dialogs;
 using Aspire.Dashboard.Model;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
-using Microsoft.Extensions.Options;
 using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
@@ -16,13 +13,13 @@ public static class AspireDashboardExtensions
 {
     public static IServiceCollection AddAspireDashboard(this IServiceCollection services)
     {
-        services.AddHostedService((sp) => {
-            var applicationName = sp.GetRequiredService<IWebHostEnvironment>().ApplicationName;
+        services.AddHostedService((sp) =>
+        {
             var originalUrls = Environment.GetEnvironmentVariable("ASPNETCORE_URLS");
             Environment.SetEnvironmentVariable("ASPNETCORE_URLS", "http://localhost:18888");
             var application = new DashboardWebApplication(sp.GetRequiredService<ILogger<DashboardWebApplication>>(), serviceCollection =>
             {
-                serviceCollection.AddSingleton<IDashboardViewModelService>(new DashboardViewModelService(applicationName));
+                serviceCollection.AddSingleton<IDashboardViewModelService>(new DashboardViewModelService(sp.GetRequiredService<IWebHostEnvironment>()));
             });
 
             Environment.SetEnvironmentVariable("ASPNETCORE_URLS", originalUrls);
@@ -32,8 +29,8 @@ public static class AspireDashboardExtensions
 
         var exporterUri = new Uri("http://localhost:18889");
 
-        services.AddLogging(options => 
-            options.AddOpenTelemetry(openTelemetry => 
+        services.AddLogging(options =>
+            options.AddOpenTelemetry(openTelemetry =>
                 openTelemetry.AddOtlpExporter(o => o.Endpoint = exporterUri)));
 
         services.AddOpenTelemetry()
