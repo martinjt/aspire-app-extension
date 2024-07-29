@@ -1,6 +1,8 @@
-# Experimental Aspire Dashboard extension
+# ARCHIVED: Experimental Aspire Dashboard extension
 
 This is an experimental add-on for enabling the Aspire Dashboard in a single application.
+
+**Note*: This experiment failed as Microsoft decided to rework the way you the dashboard works, so I've archived the project*
 
 ## Usage
 
